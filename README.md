@@ -25,7 +25,7 @@ To install and configure **Wazuh** (Open Source Security Monitoring Platform) on
 ## 📸 Lab Steps
 
 ### 1. Download Ubuntu Server ISO
-![Ubuntu Download](Screenshots/1.png)
+![Ubuntu Download](Screenshots/a/1.png)
 
 ### 2. Create Virtual Machine in VirtualBox
 ![VM Creation](Screenshots/2.png)
