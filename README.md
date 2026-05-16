@@ -1,9 +1,10 @@
 # Wazuh SIEM Installation on Ubuntu Server 22.04
 
-**Lab Report**  
+**Lab Work**  
 **Course:** Threat Modelling and Security Monitoring Sessional (SEC 204)  
 **Student Name:** Ragib Shahriar Abeg  
 **Student ID:** 2304017  
+**Submitted to:**Masud Rana (Lecturer)
 
 ---
 
