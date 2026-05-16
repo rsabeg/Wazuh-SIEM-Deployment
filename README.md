@@ -2,7 +2,7 @@
 
 **Lab Work**   
 **Student Name:** Ragib Shahriar Abeg  
-**Student ID:** 2304017
+**Student ID:** 2304017      
 **Course Name:** Threat Modelling and Security Monitoring Sessional  
 **Course Code:** SEC 203
 **Submitted to:** Masud Rana (Lecturer)
@@ -97,6 +97,3 @@ This lab successfully demonstrated the deployment of a full **Wazuh SIEM** stack
 
 ---
 
-**Submitted by:**  
-**Ragib Shahriar Abeg**  
-**ID: 2304017**
