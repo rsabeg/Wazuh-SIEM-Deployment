@@ -99,5 +99,4 @@ This lab successfully demonstrated the deployment of a full **Wazuh SIEM** stack
 
 **Submitted by:**  
 **Ragib Shahriar Abeg**  
-**ID: 2304017**  
-**SEC 204 - Threat Modelling and Security Monitoring Sessional**
+**ID: 2304017**
