@@ -1,0 +1,182 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<!-- 
+================================================================================
+  local_rules.xml — Custom Wazuh Detection Rules
+  Wazuh SIEM Deployment Lab · SEC 203
+  Student: Ragib Shahriar Abeg · ID: 2304017
+
+  Place this file at: /var/ossec/etc/rules/local_rules.xml
+  
+  Rule level reference:
+    0       — Ignored / no alert
+    1-3     — Informational
+    4-7     — Low severity
+    8-11    — Medium severity
+    12-14   — High severity
+    15+     — Critical severity
+
+  After editing, restart: sudo systemctl restart wazuh-manager
+================================================================================
+ -->
+<group name="local,custom,">
+<!--  ==================================================================
+       GROUP: SSH & Authentication Monitoring
+       ==================================================================  -->
+<!--  Alert on successful SSH login  -->
+<rule id="100001" level="3">
+<if_sid>5715</if_sid>
+<description>SSH login successful - $(dstuser) from $(srcip)</description>
+<group>authentication_success,pci_dss_10.2.5,</group>
+</rule>
+<!--  Alert on SSH login from unknown/new IP  -->
+<rule id="100002" level="8">
+<if_sid>5715</if_sid>
+<not_same_source_ip/>
+<description>SSH login from a new/unseen IP address: $(srcip)</description>
+<group>authentication_success,pci_dss_10.2.5,gdpr_IV_32.2,</group>
+</rule>
+<!--  Multiple failed SSH logins - possible brute force  -->
+<rule id="100003" level="10" frequency="5" timeframe="60">
+<if_matched_sid>5716</if_matched_sid>
+<description>Possible SSH brute force: 5+ failed logins in 60 seconds from $(srcip)</description>
+<group>authentication_failures,pci_dss_10.2.4,pci_dss_10.2.5,</group>
+</rule>
+<!--  Root login via SSH  -->
+<rule id="100004" level="12">
+<if_sid>5715</if_sid>
+<match>^ROOT$</match>
+<description>Direct root SSH login detected from $(srcip) - High severity</description>
+<group>authentication_success,pci_dss_10.2.5,</group>
+</rule>
+<!--  ==================================================================
+       GROUP: Privilege Escalation Monitoring
+       ==================================================================  -->
+<!--  sudo command executed  -->
+<rule id="100010" level="4">
+<if_sid>5402</if_sid>
+<description>Sudo command executed by $(dstuser): $(command)</description>
+<group>sudo,pci_dss_10.2.5,</group>
+</rule>
+<!--  sudo authentication failure  -->
+<rule id="100011" level="9">
+<if_sid>5401</if_sid>
+<description>Sudo authentication failure for user $(srcuser) - possible privilege escalation attempt</description>
+<group>sudo,authentication_failures,pci_dss_10.2.5,</group>
+</rule>
+<!--  New user created  -->
+<rule id="100012" level="8">
+<if_sid>5902</if_sid>
+<description>New user account created: $(dstuser)</description>
+<group>adduser,pci_dss_10.2.5,</group>
+</rule>
+<!--  User added to sudo/admin group  -->
+<rule id="100013" level="12">
+<if_sid>5902</if_sid>
+<match>sudo|admin|wheel</match>
+<description>User $(dstuser) added to privileged group - review required</description>
+<group>adduser,pci_dss_10.2.5,</group>
+</rule>
+<!--  ==================================================================
+       GROUP: File Integrity Monitoring (FIM) — Critical Files
+       ==================================================================  -->
+<!--  Wazuh config file modified  -->
+<rule id="100020" level="14">
+<if_sid>550,554</if_sid>
+<field name="file">/var/ossec/etc/ossec.conf</field>
+<description>CRITICAL: Wazuh main config file was modified!</description>
+<group>syscheck,pci_dss_11.5,</group>
+</rule>
+<!--  Wazuh rules modified  -->
+<rule id="100021" level="14">
+<if_sid>550,554</if_sid>
+<field name="file">/var/ossec/ruleset/rules/</field>
+<description>CRITICAL: Wazuh detection rules were modified!</description>
+<group>syscheck,pci_dss_11.5,</group>
+</rule>
+<!--  /etc/passwd modified  -->
+<rule id="100022" level="13">
+<if_sid>550,554</if_sid>
+<field name="file">/etc/passwd</field>
+<description>CRITICAL: /etc/passwd was modified - user database change detected</description>
+<group>syscheck,pci_dss_11.5,</group>
+</rule>
+<!--  /etc/shadow modified  -->
+<rule id="100023" level="14">
+<if_sid>550,554</if_sid>
+<field name="file">/etc/shadow</field>
+<description>CRITICAL: /etc/shadow was modified - password hash database changed</description>
+<group>syscheck,pci_dss_11.5,</group>
+</rule>
+<!--  SSH config modified  -->
+<rule id="100024" level="12">
+<if_sid>550,554</if_sid>
+<field name="file">/etc/ssh/sshd_config</field>
+<description>SSH server configuration was modified</description>
+<group>syscheck,pci_dss_11.5,</group>
+</rule>
+<!--  ==================================================================
+       GROUP: Network & Port Monitoring
+       ==================================================================  -->
+<!--  New listening port detected  -->
+<rule id="100030" level="7">
+<if_sid>533</if_sid>
+<description>New network port opened: $(port) - verify this is expected</description>
+<group>network,pci_dss_1.1.6,</group>
+</rule>
+<!--  Suspicious outbound connection  -->
+<rule id="100031" level="8">
+<if_sid>533</if_sid>
+<match>:4444|:1337|:31337|:8888|:9999</match>
+<description>Suspicious port opened - possible reverse shell or C2 activity</description>
+<group>network,attack,</group>
+</rule>
+<!--  ==================================================================
+       GROUP: Package Management Monitoring
+       ==================================================================  -->
+<!--  Software installed  -->
+<rule id="100040" level="4">
+<if_sid>2902</if_sid>
+<description>Software package installed: $(package)</description>
+<group>dpkg,pci_dss_11.5,</group>
+</rule>
+<!--  Software removed  -->
+<rule id="100041" level="6">
+<if_sid>2903</if_sid>
+<description>Software package removed: $(package)</description>
+<group>dpkg,pci_dss_11.5,</group>
+</rule>
+<!--  ==================================================================
+       GROUP: Disk & System Resource Alerts
+       ==================================================================  -->
+<!--  Disk usage above 80%  -->
+<rule id="100050" level="8">
+<if_sid>531</if_sid>
+<match>Disk utilization</match>
+<regex>8[0-9]%|9[0-9]%|100%</regex>
+<description>Disk usage is above 80% - risk of Wazuh Indexer crash</description>
+<group>system_resources,</group>
+</rule>
+<!--  Disk usage above 90% — critical  -->
+<rule id="100051" level="12">
+<if_sid>531</if_sid>
+<match>Disk utilization</match>
+<regex>9[0-9]%|100%</regex>
+<description>CRITICAL: Disk usage above 90% - Wazuh Indexer may crash imminently</description>
+<group>system_resources,</group>
+</rule>
+<!--  ==================================================================
+       GROUP: Wazuh Agent Monitoring
+       ==================================================================  -->
+<!--  Agent disconnected  -->
+<rule id="100060" level="7">
+<if_sid>504</if_sid>
+<description>Wazuh agent disconnected: $(agent.name) - investigate potential tampering</description>
+<group>agent_management,</group>
+</rule>
+<!--  New agent connected  -->
+<rule id="100061" level="5">
+<if_sid>502</if_sid>
+<description>New Wazuh agent connected: $(agent.name) from $(agent.ip)</description>
+<group>agent_management,</group>
+</rule>
+</group>
