@@ -342,7 +342,7 @@ Based on the matrix above, these are the highest-priority actions for hardening 
 
 **Ragib Shahriar Abeg** · ID: 2304017 · SEC 204  
 *Threat model prepared using the Microsoft STRIDE framework*  
-[![GitHub](https://img.shields.io/badge/GitHub-ICE1945-181717?style=flat-square&logo=github)](https://github.com/ICE1945)
+[![GitHub](https://img.shields.io/badge/GitHub-rsabeg-181717?style=flat-square&logo=github)](https://github.com/rsabeg)
 
 </div>
 
