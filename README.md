@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🛡️ Wazuh SIEM Deployment on Ubuntu Server 22.04
+# Wazuh SIEM Deployment on Ubuntu Server 22.04
 
 [![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04.5_LTS-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)](https://ubuntu.com/)
 [![Wazuh](https://img.shields.io/badge/Wazuh-4.12.0-005571?style=for-the-badge&logo=wazuh&logoColor=white)](https://wazuh.com/)
