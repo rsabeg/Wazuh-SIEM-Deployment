@@ -1,5 +1,5 @@
 # 📋 Command Reference — Wazuh SIEM Lab
-**Course:** SEC 203 — Threat Modelling and Security Monitoring Sessional  
+**Course:** SEC 204 — Threat Modelling and Security Monitoring Sessional  
 **Student:** Ragib Shahriar Abeg · ID: 2304017
 
 > A complete reference of all commands used in this lab, along with alternatives, variations, and advanced commands for future use.
@@ -603,7 +603,7 @@ sudo systemctl restart wazuh-indexer && sleep 10 && sudo systemctl restart wazuh
 
 <div align="center">
 
-**Ragib Shahriar Abeg** · ID: 2304017 · SEC 203  
+**Ragib Shahriar Abeg** · ID: 2304017 · SEC 204  
 [![GitHub](https://img.shields.io/badge/GitHub-rsabeg-181717?style=flat-square&logo=github)](https://github.com/rsabeg)
 
 </div>
