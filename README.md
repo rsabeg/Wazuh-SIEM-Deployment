@@ -16,7 +16,7 @@
 | Field | Details |
 |---|---|
 | **Course** | Threat Modelling and Security Monitoring Sessional |
-| **Course Code** | SEC 203 |
+| **Course Code** | SEC 204 |
 | **Student** | Ragib Shahriar Abeg |
 | **ID** | 2304017 |
 | **Submitted To** | Masud Rana (Lecturer) |
@@ -203,7 +203,7 @@ The deployment provides a solid foundation for further NetGuard integration, whe
 
 <div align="center">
 
-**Ragib Shahriar Abeg** · ID: 2304017 · SEC 203
+**Ragib Shahriar Abeg** · ID: 2304017 · SEC 204
 
 [![GitHub](https://img.shields.io/badge/GitHub-rsabeg-181717?style=flat-square&logo=github)](https://github.com/rsabeg)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-rsabeg-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/rsabeg)
