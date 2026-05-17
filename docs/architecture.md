@@ -53,7 +53,7 @@ This document describes the complete system architecture of the Wazuh SIEM all-i
 
 ## Component Breakdown
 
-### 🖥️ Host Machine (Windows)
+### Host Machine (Windows)
 The physical machine running the hypervisor. Acts as the management workstation — all SSH access and dashboard browsing originates here.
 
 | Property | Value |
@@ -83,7 +83,7 @@ The guest OS hosting the entire Wazuh stack. Configured as a headless server wit
 
 ---
 
-### 🛡️ Wazuh Manager
+### Wazuh Manager
 
 The core component of the Wazuh stack. Responsible for receiving and analyzing security events from agents, running the correlation engine, and triggering active responses.
 
@@ -113,7 +113,7 @@ The core component of the Wazuh stack. Responsible for receiving and analyzing s
 
 ---
 
-### 🔍 Wazuh Indexer (OpenSearch)
+### Wazuh Indexer (OpenSearch)
 
 The data storage and search backend. Stores all security events, alerts, and agent data in indexed form for fast querying and visualization.
 
@@ -133,7 +133,7 @@ The data storage and search backend. Stores all security events, alerts, and age
 
 ---
 
-### 📊 Wazuh Dashboard (OpenSearch Dashboards)
+### Wazuh Dashboard (OpenSearch Dashboards)
 
 The web-based visualization and management interface. Provides real-time alert dashboards, MITRE ATT&CK mapping, compliance views (PCI DSS, HIPAA, NIST 800-53), and agent management.
 
@@ -228,7 +228,7 @@ Production alternatives:
 
 <div align="center">
 
-**Ragib Shahriar Abeg** · ID: 2304017 · SEC 203  
+**Ragib Shahriar Abeg** · ID: 2304017 · SEC 204  
 [![GitHub](https://img.shields.io/badge/GitHub-ICE1945-181717?style=flat-square&logo=github)](https://github.com/ICE1945)
 
 </div>
