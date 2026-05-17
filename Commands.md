@@ -604,7 +604,7 @@ sudo systemctl restart wazuh-indexer && sleep 10 && sudo systemctl restart wazuh
 <div align="center">
 
 **Ragib Shahriar Abeg** · ID: 2304017 · SEC 203  
-[![GitHub](https://img.shields.io/badge/GitHub-ICE1945-181717?style=flat-square&logo=github)](https://github.com/ICE1945)
+[![GitHub](https://img.shields.io/badge/GitHub-rsabeg-181717?style=flat-square&logo=github)](https://github.com/rsabeg)
 
 </div>
 
