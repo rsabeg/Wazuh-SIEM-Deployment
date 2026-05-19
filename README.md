@@ -25,7 +25,7 @@
 
 ---
 
-## 📌 Objective
+## Objective
 
 Deploy and configure **Wazuh 4.12.0** — an open-source Security Information and Event Management (SIEM) and Extended Detection & Response (XDR) platform — on **Ubuntu Server 22.04.5 LTS** running inside Oracle VirtualBox. Access the server remotely via PuTTY over SSH and verify the full stack through the Wazuh web dashboard.
 
@@ -69,7 +69,7 @@ Deploy and configure **Wazuh 4.12.0** — an open-source Security Information an
 
 ---
 
-## 📸 Lab Walkthrough
+## Lab Walkthrough
 
 ### 1 — Download Ubuntu Server ISO
 
@@ -153,7 +153,7 @@ Confirmed all three Wazuh components are active and running via `systemctl`.
 
 ---
 
-## ✅ Results
+## Results
 
 | Component | Status |
 |---|---|
@@ -166,7 +166,7 @@ Confirmed all three Wazuh components are active and running via `systemctl`.
 
 ---
 
-## 💻 Key Commands Used
+## Key Commands Used
 
 ```bash
 # Check IP address
@@ -193,7 +193,7 @@ systemctl status wazuh-dashboard --no-pager
 
 ---
 
-## 📝 Conclusion
+## Conclusion
 
 This lab successfully demonstrated the end-to-end deployment of a **Wazuh SIEM/XDR stack** on a virtualized Ubuntu Server environment. All three core components — Manager, Indexer, and Dashboard — were verified as active and operational. The web dashboard is fully accessible and ready for endpoint agent enrollment, log analysis, threat hunting, and compliance monitoring.
 
