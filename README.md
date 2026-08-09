@@ -205,8 +205,11 @@ The deployment provides a solid foundation for further NetGuard integration, whe
 
 **Ragib Shahriar Abeg** · ID: 2304017 · SEC 204
 
-[![GitHub](https://img.shields.io/badge/GitHub-rsabeg-181717?style=flat-square&logo=github)](https://github.com/rsabeg)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-rsabeg-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/rsabeg)
+
+<p>
+<a href="https://www.linkedin.com/in/rsabeg/">
+<img src="https://img.shields.io/badge/LinkedIn-rsabeg-9146FF?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=000000" />
+</a>
 
 </div>
 
